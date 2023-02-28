@@ -1,0 +1,519 @@
+:root {
+  --mainColor: #ff5421;
+  --black: #000;
+  --white: #fff;
+  --light: #ccc;
+  --section-bg: #1d0e15;
+  --border: 0.1rem solid rgba(255, 255, 255, 0.2);
+  --shadow: 0.7rem 0.7rem 1rem #ff552189;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.2s linear;
+}
+
+section {
+  padding: 3rem 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-padding-top: 10rem;
+}
+html ::-webkit-scrollbar {
+  width: 1rem;
+}
+html ::-webkit-scrollbar-track {
+  background-color: var(--black);
+}
+html ::-webkit-scrollbar-thumb {
+  background-color: var(--mainColor);
+}
+html ::-moz-selection {
+  background-color: var(--white);
+  color: var(--mainColor);
+}
+html ::selection {
+  background-color: var(--white);
+  color: var(--mainColor);
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+}
+@media (max-width: 576px) {
+  html {
+    font-size: 50%;
+  }
+}
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--section-bg);
+}
+
+.main-btn {
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  color: var(--white);
+  display: inline-block;
+  background-color: var(--mainColor);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  padding: 1rem 3rem;
+  margin-top: 1rem;
+  border: 0.1rem solid transparent;
+  cursor: pointer;
+}
+.main-btn:hover {
+  background-color: var(--white);
+  color: var(--mainColor);
+}
+
+.title h2.main-title {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  color: var(--mainColor);
+}
+.title p.side-desc {
+  font-size: 2.7rem;
+  text-transform: capitalize;
+  color: var(--white);
+  margin-bottom: 1.2rem;
+}
+.title p.desc {
+  font-size: 3.5rem;
+  text-transform: capitalize;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.side-p {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  color: #ccc;
+  line-height: 2;
+  margin-bottom: 2.5rem;
+}
+
+header {
+  z-index: 100;
+  padding: 3rem 1rem;
+}
+header .container .logo {
+  color: var(--mainColor);
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+header .container .logo span {
+  color: var(--white);
+}
+header .container .nav {
+  display: flex;
+  align-items: center;
+}
+header .container .nav a {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: var(--white);
+  margin-left: 2rem;
+}
+header .container .nav a:hover, header .container .nav a.active {
+  color: var(--mainColor);
+  font-weight: bold;
+  font-size: 2.5rem;
+  letter-spacing: -0.2rem;
+  font-style: italic;
+}
+header .menu {
+  display: none;
+  font-size: 2.5rem;
+  color: red;
+  cursor: pointer;
+  color: var(--white);
+}
+header .menu.active {
+  transition: 0.4s all;
+  transform: rotate(360deg);
+}
+header.active {
+  background-color: var(--white);
+  padding: 2rem;
+}
+header.active .nav a {
+  color: var(--black);
+}
+header.active .logo span {
+  color: var(--black);
+}
+header.active .menu {
+  color: var(--black);
+}
+
+@media (max-width: 767px) {
+  header .menu {
+    display: block;
+  }
+  header .container .nav {
+    position: absolute;
+    background-color: var(--white);
+    top: calc(100% - 0.1rem);
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  header .container .nav.active {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  header .container .nav a {
+    color: var(--black);
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+}
+.home {
+  background: url("../images/home-bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+.home .home-img {
+  animation: move 1s linear infinite alternate;
+}
+.home .main-desc {
+  font-size: 5rem;
+  text-transform: capitalize;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(2rem);
+  }
+}
+@media (max-width: 991px) {
+  .home .main-desc {
+    font-size: 3rem;
+  }
+}
+.about ul li {
+  font-size: 1.7rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+}
+.about ul li i {
+  color: var(--mainColor);
+  padding-right: 1rem;
+  margin-top: 0.4rem;
+}
+.about ul li p {
+  font-size: 1.7rem;
+  text-transform: capitalize;
+  color: var(--white);
+  display: inline;
+  text-align: left;
+}
+
+.stats {
+  background-image: url(../images/counter-bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.stats .box {
+  text-align: center;
+}
+.stats .box h3 {
+  color: var(--mainColor);
+  font-size: 5rem;
+}
+.stats .box p {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: var(--white);
+}
+
+.courses .courses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 2rem;
+}
+.courses .courses-container .course {
+  border: var(--border);
+}
+.courses .courses-container .course:hover {
+  box-shadow: var(--shadow);
+}
+.courses .courses-container .course:hover .image img {
+  transform: scale(1.1);
+}
+.courses .courses-container .course .image {
+  overflow: hidden;
+  height: 25rem;
+}
+.courses .courses-container .course .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.courses .courses-container .course .content {
+  padding: 2rem;
+}
+.courses .courses-container .course .content .date {
+  display: flex;
+  justify-content: space-between;
+}
+.courses .courses-container .course .content .date p {
+  font-size: 1.7rem;
+  text-transform: capitalize;
+  color: var(--white);
+}
+.courses .courses-container .course .content .date p i {
+  margin-right: 0.5rem;
+  color: var(--mainColor);
+}
+.courses .courses-container .course .content .info {
+  font-size: 2.7rem;
+  text-transform: capitalize;
+  color: var(--white);
+  margin: 0.5rem 0;
+}
+
+.pricing .pricing-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
+  gap: 2rem;
+  margin-top: 8rem;
+}
+.pricing .pricing-container .box {
+  border: var(--border);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+.pricing .pricing-container .box .type {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: var(--white);
+}
+.pricing .pricing-container .box .price {
+  font-size: 6rem;
+  text-transform: capitalize;
+  color: var(--white);
+  font-weight: 600;
+  margin: 2rem 0;
+}
+.pricing .pricing-container .box .price span {
+  display: inline-block;
+  font-size: 2rem;
+}
+.pricing .pricing-container .box .benefits {
+  margin-top: 3rem;
+}
+.pricing .pricing-container .box .benefits li {
+  margin-bottom: 2.5rem;
+  font-size: 1.7rem;
+  text-transform: capitalize;
+  color: var(--light);
+}
+.pricing .pricing-container .box .benefits li i {
+  color: var(--mainColor);
+  margin-right: 1rem;
+}
+.pricing .pricing-container .box .benefits li i.xmark {
+  color: var(--white);
+}
+
+@media (min-width: 992px) {
+  .pricing .box.premium {
+    transform: scale(1.2);
+    background-color: var(--section-bg);
+    z-index: 1;
+  }
+}
+.team .team-container > div:first-child .image {
+  background-image: url(../images/team-1.jpg);
+}
+.team .team-container > div:nth-child(2) .image {
+  background-image: url(../images/team-2.jpg);
+}
+.team .team-container > div:nth-child(3) .image {
+  background-image: url(../images/team-3.jpg);
+}
+.team .box {
+  background-color: red;
+  height: 50rem;
+  overflow: hidden;
+  position: relative;
+}
+.team .box .image {
+  height: 100%;
+  background-size: cover;
+}
+.team .box img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: center center;
+}
+.team .box .info,
+.team .box .social {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--white);
+}
+.team .box .info {
+  padding: 1rem 2rem;
+  left: 0;
+}
+.team .box .info h4 {
+  font-size: 1.7rem;
+  text-transform: capitalize;
+  color: var(--mainColor);
+}
+.team .box .info p {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: var(--black);
+}
+.team .box .social {
+  padding: 1.5rem 1rem;
+  left: -100%;
+}
+.team .box .social a {
+  font-size: 2rem;
+  color: var(--black);
+  margin: 0 1rem;
+}
+.team .box:hover .social {
+  left: 0;
+}
+.team .box:hover .info {
+  left: -100%;
+}
+
+@media (max-width: 767px) {
+  .team .box {
+    height: 440px;
+  }
+}
+.blog .box {
+  border: var(--border);
+}
+.blog .box:hover .image img {
+  transform: scale(1.1);
+}
+.blog .box .image {
+  height: 25rem;
+  overflow: hidden;
+}
+.blog .box .image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+.blog .box .content {
+  padding: 2rem;
+}
+.blog .box .content .link {
+  font-size: 2.7rem;
+  text-transform: capitalize;
+  color: var(--white);
+}
+.blog .box .content .link:hover {
+  color: var(--mainColor);
+}
+.blog .box .content .info {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: var(--border);
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+.blog .box .content .info i {
+  color: var(--mainColor);
+  margin-right: 1rem;
+}
+
+.footer {
+  background-image: url(../images/footer-bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.footer h3 {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+.footer .links a {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  color: var(--white);
+  display: block;
+  padding: 1rem 0;
+}
+.footer .links a:hover {
+  color: var(--mainColor);
+}
+.footer .links a:hover i {
+  margin-right: 1.5rem;
+}
+.footer .links a i {
+  color: var(--mainColor);
+  margin-right: 1rem;
+}
+.footer input {
+  display: block;
+  width: 100%;
+  padding: 1.2rem;
+  margin: 1rem 0;
+  outline: none;
+  font-size: 1.6rem;
+}
+.footer .author {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: var(--white);
+  text-align: center;
+  border-top: var(--border);
+  padding-top: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+.footer .author span {
+  color: var(--mainColor);
+}/*# sourceMappingURL=style.css.map */

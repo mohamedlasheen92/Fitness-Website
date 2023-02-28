@@ -1,0 +1,416 @@
+// @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+@import "./global-rules";
+
+// Header
+header {
+  z-index: 100;
+  padding: 3rem 1rem;
+
+  .container {
+    .logo {
+      color: $main;
+      font-size: 2.5rem;
+      font-weight: 600;
+
+      span {
+        color: $white;
+      }
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+
+      a {
+        @include mainText(2rem, $white);
+        margin-left: 2rem;
+
+        &:hover,
+        &.active {
+          color: $main;
+          font-weight: bold;
+          font-size: 2.5rem;
+          letter-spacing: -0.2rem;
+          font-style: italic;
+        }
+      }
+    }
+  }
+
+  .menu {
+    display: none;
+    font-size: 2.5rem;
+    color: red;
+    cursor: pointer;
+    color: $white;
+
+    &.active {
+      transition: 0.4s all;
+      transform: rotate(360deg);
+    }
+  }
+
+  &.active {
+    background-color: $white;
+    padding: 2rem;
+
+    .nav a {
+      color: $black;
+    }
+
+    .logo span {
+      color: $black;
+    }
+
+    .menu {
+      color: $black;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  header .menu {
+    display: block;
+  }
+
+  header .container .nav {
+    position: absolute;
+    background-color: $white;
+    top: calc(100% - 0.1rem);
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+    &.active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    a {
+      color: $black;
+      width: 100%;
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+// Home
+.home {
+  background: url("../images/home-bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+
+  .home-img {
+    animation: move 1s linear infinite alternate;
+  }
+
+  .main-desc {
+    @include mainText(5rem, $white);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(2rem);
+  }
+}
+
+@media (max-width: 991px) {
+  .home .main-desc {
+    font-size: 3rem;
+  }
+}
+// About
+.about {
+  // background-color: #aaa;
+
+  ul {
+    li {
+      font-size: 1.7rem;
+      padding-bottom: 1.5rem;
+      display: flex;
+      // align-items: center;
+
+      i {
+        color: $main;
+        padding-right: 1rem;
+        margin-top: 0.4rem;
+      }
+
+      p {
+        @include mainText(1.7rem, $white);
+        display: inline;
+        text-align: left;
+      }
+    }
+  }
+}
+
+// Statistics
+.stats {
+  background-image: url(../images/counter-bg.jpg);
+  background-size: cover;
+  background-position: center;
+
+  .box {
+    text-align: center;
+
+    h3 {
+      color: $main;
+      font-size: 5rem;
+    }
+
+    p {
+      @include mainText(2rem, $white);
+    }
+  }
+}
+// Courses
+.courses {
+  .courses-container {
+    @include grid(32rem);
+    .course {
+      &:hover {
+        .image img {
+          transform: scale(1.1);
+        }
+        box-shadow: $shadow;
+      }
+      border: $border;
+
+      .image {
+        overflow: hidden;
+        height: 25rem;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .content {
+        padding: 2rem;
+        .date {
+          display: flex;
+          justify-content: space-between;
+          p {
+            @include mainText(1.7rem, $white);
+            i {
+              margin-right: 0.5rem;
+              color: $main;
+            }
+          }
+        }
+        .info {
+          @include mainText(2.7rem, $white);
+          margin: 0.5rem 0;
+        }
+      }
+    }
+  }
+}
+// Pricing
+.pricing {
+  .pricing-container {
+    @include grid(29rem);
+    margin-top: 8rem;
+    .box {
+      border: $border;
+      padding: 2rem;
+      border-radius: 0.5rem;
+
+      .type {
+        @include mainText(2rem, $white);
+      }
+      .price {
+        @include mainText(6rem, $white);
+        font-weight: 600;
+        margin: 2rem 0;
+        span {
+          display: inline-block;
+          font-size: 2rem;
+        }
+      }
+      .benefits {
+        margin-top: 3rem;
+        li {
+          margin-bottom: 2.5rem;
+          @include mainText(1.7rem, $light);
+          i {
+            color: $main;
+            margin-right: 1rem;
+            &.xmark {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .pricing .box.premium {
+    transform: scale(1.2);
+    background-color: $section-bg;
+    z-index: 1;
+  }
+}
+// Team
+.team {
+  .team-container > div:first-child .image {
+    background-image: url(../images/team-1.jpg);
+  }
+  .team-container > div:nth-child(2) .image {
+    background-image: url(../images/team-2.jpg);
+  }
+  .team-container > div:nth-child(3) .image {
+    background-image: url(../images/team-3.jpg);
+  }
+  .box {
+    background-color: red;
+    height: 50rem;
+    overflow: hidden;
+    position: relative;
+    .image {
+      height: 100%;
+      background-size: cover;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      background-position: center center;
+    }
+    .info,
+    .social {
+      position: absolute;
+      bottom: 0;
+      background-color: $white;
+    }
+    .info {
+      padding: 1rem 2rem;
+      left: 0;
+      h4 {
+        @include mainText(1.7rem, $main);
+      }
+      p {
+        @include mainText(2rem, $black);
+      }
+    }
+    .social {
+      padding: 1.5rem 1rem;
+      left: -100%;
+      a {
+        font-size: 2rem;
+        color: $black;
+        margin: 0 1rem;
+      }
+    }
+    &:hover {
+      .social {
+        left: 0;
+      }
+      .info {
+        left: -100%;
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .team .box {
+    height: 440px;
+  }
+}
+// blog
+.blog {
+  .box {
+    border: $border;
+    &:hover {
+      .image img {
+        transform: scale(1.1);
+      }
+    }
+    .image {
+      height: 25rem;
+      overflow: hidden;
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+    .content {
+      padding: 2rem;
+      .link {
+        @include mainText(2.7rem, $white);
+        &:hover {
+          color: $main;
+        }
+      }
+      .info {
+        @include mainText(1.5rem, $white);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: $border;
+        margin-top: 2rem;
+        padding-top: 2rem;
+
+        i {
+          color: $main;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
+// Footer
+.footer {
+  background-image: url(../images/footer-bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  h3 {
+    @include mainText(2rem, $white);
+    margin-bottom: 2rem;
+  }
+  .links {
+    a {
+      @include mainText(1.6rem, $white);
+      display: block;
+      padding: 1rem 0;
+      &:hover {
+        color: $main;
+        i {
+          margin-right: 1.5rem;
+        }
+      }
+      i {
+        color: $main;
+        margin-right: 1rem;
+      }
+    }
+  }
+  input {
+    display: block;
+    width: 100%;
+    padding: 1.2rem;
+    margin: 1rem 0;
+    outline: none;
+    font-size: 1.6rem;
+  }
+  .author {
+    @include mainText(2rem, $white);
+    text-align: center;
+    border-top: $border;
+    padding-top: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    span {
+      color: $main;
+    }
+  }
+}
